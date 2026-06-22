@@ -1,0 +1,21 @@
+Feature,SHAP Importance
+delivery_delay_days,0.04960509906718127
+total_fulfillment_days,0.04285869381850649
+total_items,0.04106872748896313
+is_late,0.03246983764769439
+total_freight,0.016628759924351654
+product_category_name_english_encoded,0.015895040500531785
+dispatch_delay_days,0.01530935555086519
+avg_item_price,0.011805656870928468
+total_payment_value,0.010847880423955845
+total_price,0.008812301750761786
+estimated_delivery_window,0.00854899502113856
+order_month,0.008244143077620088
+order_confirmation_delay_hrs,0.008037422461374148
+payment_installments,0.00759766612650419
+seller_state_encoded,0.007239899123912241
+freight_ratio,0.0072016677378452226
+order_hour,0.006318475231827606
+customer_state_encoded,0.005313861203669924
+order_dayofweek,0.004624777161666405
+payment_type_encoded,0.002234582066262966
