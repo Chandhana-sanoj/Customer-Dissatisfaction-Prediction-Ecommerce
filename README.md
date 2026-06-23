@@ -18,7 +18,7 @@ The solution integrates:
 - Business Intelligence Dashboards
 - Flask Web Application Deployment
 
-##Tech Stack:
+## Tech Stack
 
 Python • Pandas • NumPy • Matplotlib • Seaborn • Scikit-Learn • Random Forest • XGBoost • SHAP • Power BI • Flask • SQLite • Bootstrap • GitHub • Render
 
