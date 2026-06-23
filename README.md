@@ -4,7 +4,6 @@ Live App → https://customer-dissatisfaction-predictior.onrender.com
 
 An end-to-end Machine Learning application that predicts customer dissatisfaction risk in e-commerce orders using order, payment, customer, and delivery performance data. The system combines predictive analytics, explainable AI, customer segmentation, and business intelligence dashboards to help businesses proactively identify at-risk customers before negative reviews occur.
 
----
 ## Overview
 
 Customer satisfaction is one of the most critical success factors in e-commerce. Negative customer experiences often result in poor reviews, reduced retention, and revenue loss.
@@ -19,7 +18,6 @@ The solution integrates:
 - Business Intelligence Dashboards
 - Flask Web Application Deployment
 
----
 ## Dataset
 
 Source: Olist Brazilian E-Commerce Dataset
@@ -35,7 +33,6 @@ The project integrates multiple datasets containing customer, order, payment, re
 - Target Variable: `dissatisfied`
 - Class imbalance handled through resampling techniques
 
----
 ## Model Performance
 
 | Metric | Score |
@@ -47,7 +44,6 @@ The project integrates multiple datasets containing customer, order, payment, re
 | ROC-AUC | XX |
 
 **Recall was prioritized during model selection because identifying dissatisfied customers is more valuable than maximizing overall accuracy.**
----
 
 ## Key Insights
 
