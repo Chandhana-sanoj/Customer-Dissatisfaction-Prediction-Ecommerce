@@ -52,3 +52,27 @@ The project integrates multiple datasets containing customer, order, payment, re
 - Late deliveries substantially increase dissatisfaction probability.
 - Larger orders show higher dissatisfaction risk.
 - SHAP explainability confirmed operational delays as major business drivers of poor customer experiences.
+
+## Dashboard Highlights
+
+### Business Overview Dashboard
+
+![Business Overview](static/images/business_overview.png)
+
+### Customer Satisfaction Analysis Dashboard
+
+![Customer Satisfaction Dashboard](static/images/customer_satisfaction.png)
+
+### Customer Segmentation Dashboard
+
+![Customer Segmentation Dashboard](static/images/customer_segmentation.png)
+
+## Web Application Features
+
+- Customer Dissatisfaction Prediction
+- Real-Time Risk Assessment
+- Risk Level Classification
+- Explainable AI Insights
+- Prediction History Tracking
+- Dashboard Integration
+- SQLite Logging
