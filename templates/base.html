@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Customer Dissatisfaction Early Warning System{% endblock %}</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=2.0">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/924/924979.png">
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand navbar-brand-custom" href="{{ url_for('home') }}">
+                <span>E-commerce Analytics</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom {% if request.path == '/' or request.path == '/predict' %}active{% endif %}" href="{{ url_for('home') }}">
+                            <i class="fa-solid fa-house me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom {% if request.path == '/dashboard' %}active{% endif %}" href="{{ url_for('dashboard') }}">
+                            <i class="fa-solid fa-gauge-high me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom {% if request.path == '/history' %}active{% endif %}" href="{{ url_for('history') }}">
+                            <i class="fa-solid fa-clock-rotate-left me-1"></i> History
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Outer Content Wrapper (Overridable for Full-Width Pages) -->
+    {% block content_wrapper %}
+    <div class="split-container">
+        
+        <!-- LEFT PANEL (25% width, persistent banner) -->
+        <div class="left-panel">
+            <div class="left-panel-header">
+                <h1 class="left-panel-title">Customer Dissatisfaction Risk Assessment</h1>
+                <div class="left-panel-subtitle">Early Warning System</div>
+                <p class="left-panel-desc">
+                    Predict customer dissatisfaction before negative reviews occur and identify operational risks affecting customer experience.
+                </p>
+            </div>
+            
+            <div class="left-panel-illustration">
+                <img src="{{ url_for('static', filename='images/left_panel_bg.png') }}" 
+                     onerror="this.style.display='none'; document.getElementById('svg-fallback').style.display='block';"
+                     alt="E-commerce Analytics Illustration" class="left-panel-img">
+                
+                <div id="svg-fallback" style="display: none; width: 100%; text-align: center;">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; max-height: 280px; display: block; margin: 0 auto;">
+                        <!-- Mobile screen -->
+                        <rect x="70" y="30" width="60" height="110" rx="8" fill="#FFFFFF" stroke="#E0DDCF" stroke-width="3" />
+                        <rect x="75" y="40" width="50" height="90" rx="4" fill="#FAF8F2" />
+                        <!-- Home button -->
+                        <circle cx="100" cy="135" r="3" fill="#E0DDCF" />
+                        <!-- Shopping Cart -->
+                        <path d="M 82 55 L 90 55 L 94 75 L 114 75 L 118 60 L 92 60" fill="none" stroke="#222222" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+                        <circle cx="97" cy="81" r="2.5" fill="#222222" />
+                        <circle cx="111" cy="81" r="2.5" fill="#222222" />
+                        <!-- Hand holding bags (mock abstract shapes) -->
+                        <path d="M 125 90 C 130 85, 145 80, 155 90 L 160 120 C 160 125, 145 130, 135 125 Z" fill="#F4C542" opacity="0.8" />
+                        <path d="M 115 105 C 120 100, 135 95, 145 105 L 150 135 C 150 140, 135 145, 125 140 Z" fill="#E74C3C" opacity="0.8" />
+                        <!-- Dynamic lines -->
+                        <path d="M 50 80 Q 60 70 55 90" fill="none" stroke="#F4C542" stroke-width="2" stroke-linecap="round" />
+                        <path d="M 150 50 Q 155 40 165 45" fill="none" stroke="#E74C3C" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="left-panel-footer">
+                <i class="fa-solid fa-heart"></i>
+                <span>Better Experience. Stronger Relationships.</span>
+            </div>
+        </div>
+        
+        <!-- RIGHT PANEL (75% width, dynamic page blocks) -->
+        <div class="right-panel">
+            {% block content %}{% endblock %}
+        </div>
+        
+    </div>
+    {% endblock %}
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

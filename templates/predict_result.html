@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}Prediction Result - Customer Satisfaction Early Warning System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center my-auto">
+    <div class="col-12 col-xl-11">
+        
+        <!-- Top Section: Status & Probability -->
+        <div class="row g-4 mb-4">
+            <!-- Prediction Status Card -->
+            <div class="col-md-7">
+                <div class="result-status-card h-100">
+                    <div>
+                        <div class="result-status-title">Prediction Result</div>
+                        {% if prediction == 'DISSATISFIED' %}
+                        <div class="result-status-value result-status-dissatisfied">
+                            DISSATISFIED <i class="fa-regular fa-face-frown-open"></i>
+                        </div>
+                        {% else %}
+                        <div class="result-status-value result-status-satisfied">
+                            SATISFIED <i class="fa-regular fa-face-smile-beam"></i>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Probability Card -->
+            <div class="col-md-5">
+                <div class="result-status-card h-100">
+                    <div>
+                        <div class="result-status-title">Probability of Dissatisfaction</div>
+                        {% if risk_level == 'High Risk' %}
+                        <div class="prob-value prob-value-high">{{ probability }}%</div>
+                        {% elif risk_level == 'Medium Risk' %}
+                        <div class="prob-value prob-value-medium">{{ probability }}%</div>
+                        {% else %}
+                        <div class="prob-value prob-value-low">{{ probability }}%</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Risk Level Badge Card -->
+        <div class="form-card mb-4 py-3 px-4 d-flex align-items-center gap-3">
+            <span class="fw-bold" style="font-size: 0.95rem; color: var(--text-black);">Risk Level</span>
+            {% if risk_level == 'High Risk' %}
+            <span class="badge-risk badge-risk-high">HIGH RISK</span>
+            {% elif risk_level == 'Medium Risk' %}
+            <span class="badge-risk badge-risk-medium">MEDIUM RISK</span>
+            {% else %}
+            <span class="badge-risk badge-risk-low">LOW RISK</span>
+            {% endif %}
+        </div>
+        
+        <!-- Middle Section: Contributing Factors & Recommendations -->
+        <div class="row g-4 mb-4">
+            <!-- Top Factors Contributing -->
+            <div class="col-md-6">
+                <div class="form-card h-100">
+                    <h4 class="fw-bold mb-3" style="font-size: 1.15rem;"><i class="fa-solid fa-chart-simple text-warning me-2"></i>Top Factors Contributing</h4>
+                    
+                    
+                    <div class="factor-list">
+                        {% for factor in top_factors %}
+                        <div class="factor-list-item">
+                            <span class="factor-name">{{ loop.index }}. {{ factor.name }}</span>
+                            {% if factor.impact == 'High Impact' %}
+                            <span class="badge-impact badge-impact-high">High Impact</span>
+                            {% elif factor.impact == 'Medium Impact' %}
+                            <span class="badge-impact badge-impact-medium">Medium Impact</span>
+                            {% else %}
+                            <span class="badge-impact badge-impact-low">Low Impact</span>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- What You Can Do (Recommendations) -->
+            <div class="col-md-6">
+                <div class="form-card h-100">
+                    <h4 class="fw-bold mb-3" style="font-size: 1.15rem;"><i class="fa-solid fa-lightbulb text-warning me-2"></i>What You Can Do</h4>
+                    
+                    
+                    <ul class="recom-list">
+                        {% for recom in recommendations %}
+                        <li class="recom-item">{{ recom }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Model Info Card -->
+        <div class="form-card mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-9 border-end">
+                    <h5 class="fw-bold mb-2" style="font-size: 1rem;">About the Model</h5>
+                    <p class="text-muted mb-0" style="font-size: 0.85rem; line-height: 1.6;">
+                        This model is a <strong>Random Forest Classifier</strong> trained on historical e-commerce order data to predict the likelihood of customer dissatisfaction. It uses <strong>Random Undersampling</strong> to balance target labels and leverages <strong>SHAP</strong> explainability coupled with <strong>RFM + KMeans</strong> segmentation to identify risk boundaries.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="row g-3">
+            <div class="col-sm-6">
+                <a href="{{ url_for('home') }}" class="btn btn-light w-100 py-3 fw-bold border-secondary-subtle" style="border-radius: 12px; font-size: 0.95rem; background-color: var(--card-white); border: 1px solid var(--border-gray); color: var(--text-black);">
+                    <i class="fa-solid fa-rotate-left me-2"></i> NEW PREDICTION
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

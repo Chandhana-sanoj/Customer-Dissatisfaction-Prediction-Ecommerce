@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Customer Satisfaction Early Warning System{% endblock %}
+
+{% block content_wrapper %}
+<div class="full-width-container">
+    
+    <div class="mb-4">
+        <h2 class="fw-bold mb-1" style="font-size: 1.6rem;">Business Intelligence Dashboard</h2>
+        <p class="text-muted" style="font-size: 0.95rem;">Key insights and analytics from the e-commerce operations.</p>
+    </div>
+    
+    <!-- SECTION 1: Business Overview -->
+    <div class="dashboard-card">
+        <h3 class="dashboard-section-title">
+            <i class="fa-solid fa-chart-column"></i> 1. Business Overview
+        </h3>
+        <p class="text-muted" style="font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1.5rem;">
+            Historical order volumes, regional distributions, and revenue aggregates for retail analytics.
+        </p>
+        <div class="position-relative overflow-hidden" style="border-radius: var(--radius-md);">
+            <img src="{{ url_for('static', filename='images/business_overview.png') }}" 
+                 onerror="this.src='https://placehold.co/1200x600/FAF8F2/222222?text=Business+Overview+Dashboard';"
+                 alt="Business Overview Dashboard" class="dashboard-img">
+        </div>
+    </div>
+    
+    <!-- SECTION 2: Customer Satisfaction Analysis -->
+    <div class="dashboard-card">
+        <h3 class="dashboard-section-title">
+            <i class="fa-solid fa-face-smile"></i> 2. Customer Satisfaction Overview
+        </h3>
+        <p class="text-muted" style="font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1.5rem;">
+            CSAT distribution, response times, review feedback patterns, and correlation matrices for risk factors.
+        </p>
+        <div class="position-relative overflow-hidden" style="border-radius: var(--radius-md);">
+            <img src="{{ url_for('static', filename='images/customer_satisfaction.png') }}" 
+                 onerror="this.src='https://placehold.co/1200x600/FAF8F2/222222?text=Customer+Satisfaction+Dashboard';"
+                 alt="Customer Satisfaction Overview Dashboard" class="dashboard-img">
+        </div>
+    </div>
+    
+    <!-- SECTION 3: Customer Segmentation (RFM) -->
+    <div class="dashboard-card">
+        <h3 class="dashboard-section-title">
+            <i class="fa-solid fa-circle-nodes"></i> 3. Customer Segmentation (RFM)
+        </h3>
+        <p class="text-muted" style="font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1.5rem;">
+            K-Means clustering based on Recency, Frequency, and Monetary scores. Identifies high-value clusters and churn-susceptible customer brackets.
+        </p>
+        <div class="position-relative overflow-hidden" style="border-radius: var(--radius-md);">
+            <img src="{{ url_for('static', filename='images/customer_segmentation.png') }}" 
+                 onerror="this.src='https://placehold.co/1200x600/FAF8F2/222222?text=Customer+Segmentation+Dashboard';"
+                 alt="Customer Segmentation Dashboard" class="dashboard-img">
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
