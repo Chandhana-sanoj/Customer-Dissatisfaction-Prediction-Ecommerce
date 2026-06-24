@@ -222,7 +222,7 @@ def predict():
         prob_percentage = prob_dissatisfied * 100.0
         
         # Prediction Output (0 = SATISFIED, 1 = DISSATISFIED)
-        prediction_class = int(prob_dissatisfied >= 0.50)
+        prediction_class = int(prob_dissatisfied >= 0.60)
         prediction_text = 'DISSATISFIED' if prediction_class == 1 else 'SATISFIED'
         
         # Risk Levels:
